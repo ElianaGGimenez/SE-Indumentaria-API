@@ -1,127 +1,127 @@
 [
   {
     "id": 1,
-    "nombre": "Remera Básica",
-    "precio": 5500,
+    "nombre": "Vestido Widy",
+    "precio": 39000,
     "categoria": "indumentaria",
     "img": "/img/producto1.jpg"
   },
   {
     "id": 2,
-    "nombre": "Pantalón Cargo",
-    "precio": 12500,
+    "nombre": "Vestido Widy",
+    "precio": 39000,
     "categoria": "indumentaria",
     "img": "/img/producto2.jpg"
   },
   {
     "id": 3,
-    "nombre": "Campera de Jean",
-    "precio": 18500,
+    "nombre": "Short Tery Recorte",
+    "precio": 46000,
     "categoria": "indumentaria",
     "img": "/img/producto3.jpg"
   },
   {
     "id": 4,
-    "nombre": "Zapatillas Urbanas",
-    "precio": 22000,
+    "nombre": "Campera Kipper Special Relaxed",
+    "precio": 75000,
     "categoria": "indumentaria",
     "img": "/img/producto4.jpg"
   },
   {
     "id": 5,
-    "nombre": "Gorra Negra",
-    "precio": 3500,
-    "categoria": "accesorios",
+    "nombre": "Bermuda Blast Rot Gabardina Slim fit",
+    "precio": 59000,
+    "categoria": "indumentaria",
     "img": "/img/producto5.jpg"
   },
   {
     "id": 6,
-    "nombre": "Mochila Urbana",
-    "precio": 14500,
-    "categoria": "accesorios",
+    "nombre": "Bermuda Flash Slim fit",
+    "precio": 59000,
+    "categoria": "indumentaria",
     "img": "/img/producto6.jpg"
   },
   {
     "id": 7,
-    "nombre": "Bufanda Lana",
-    "precio": 4800,
+    "nombre": "Colgante 3 en uno -smile",
+    "precio": 6900,
     "categoria": "accesorios",
     "img": "/img/producto7.jpg"
   },
   {
     "id": 8,
-    "nombre": "Cinturón Cuero",
-    "precio": 7200,
+    "nombre": "Colgante 3 en uno -arandela",
+    "precio": 7900,
     "categoria": "accesorios",
     "img": "/img/producto8.jpg"
   },
   {
     "id": 9,
-    "nombre": "Vestido Verano",
-    "precio": 13500,
-    "categoria": "indumentaria",
+    "nombre": "Colgante 3 en uno -triangulo",
+    "precio": 6900,
+    "categoria": "accesorios",
     "img": "/img/producto9.jpg"
   },
   {
     "id": 10,
-    "nombre": "Pollera Jeans",
-    "precio": 9800,
-    "categoria": "indumentaria",
+    "nombre": "Pulsera cadena x3",
+    "precio": 4900,
+    "categoria": "accesorios",
     "img": "/img/producto10.jpg"
   },
   {
     "id": 11,
-    "nombre": "Camisa Blanca",
-    "precio": 8900,
-    "categoria": "indumentaria",
+    "nombre": "Pulsera con dije y perla",
+    "precio": 4900,
+    "categoria": "accesorios",
     "img": "/img/producto11.jpg"
   },
   {
     "id": 12,
-    "nombre": "Sweater Oversize",
-    "precio": 11200,
-    "categoria": "indumentaria",
+    "nombre": "Set de aros",
+    "precio": 9900,
+    "categoria": "accesorios",
     "img": "/img/producto12.jpg"
   },
   {
     "id": 13,
-    "nombre": "Reloj Acero",
-    "precio": 25500,
-    "categoria": "accesorios",
+    "nombre": "Vestido Strats",
+    "precio": 59900,
+    "categoria": "indumentaria",
     "img": "/img/producto13.jpg"
   },
   {
     "id": 14,
-    "nombre": "Collar Plata",
-    "precio": 6500,
-    "categoria": "accesorios",
+    "nombre": "Remera Over Eden",
+    "precio": 36990,
+    "categoria": "indumentaria",
     "img": "/img/producto14.jpg"
   },
   {
     "id": 15,
-    "nombre": "Pulsera Cuero",
-    "precio": 4200,
-    "categoria": "accesorios",
+    "nombre": "Camisa Oslo II",
+    "precio": 69900,
+    "categoria": "indumentaria",
     "img": "/img/producto15.jpg"
   },
   {
     "id": 16,
-    "nombre": "Aros Dorados",
-    "precio": 5100,
-    "categoria": "accesorios",
+    "nombre": "Campera Oruga",
+    "precio": 128000,
+    "categoria": "indumentaria",
     "img": "/img/producto16.jpg"
   },
   {
     "id": 17,
-    "nombre": "Campera Inflable",
-    "precio": 26500,
+    "nombre": "Campera Brecker",
+    "precio": 72000,
     "categoria": "indumentaria",
     "img": "/img/producto17.jpg"
   },
   {
     "id": 18,
-    "nombre": "Jogging Deportivo",
-    "precio": 11500,
+    "nombre": "Campera Shadow",
+    "precio": 75000,
     "categoria": "indumentaria",
     "img": "/img/producto18.jpg"
   }
