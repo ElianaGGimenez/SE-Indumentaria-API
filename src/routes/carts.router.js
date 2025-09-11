@@ -7,7 +7,6 @@ import {
 
 const router = Router();
 
-// /api/carts
 router.post("/", createCart);
 router.get("/:cid", getCart);
 router.post("/:cid/product/:pid", addProductToCart);

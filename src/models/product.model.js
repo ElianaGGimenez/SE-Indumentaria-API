@@ -1,4 +1,3 @@
-// Modelo simple de validación (no es Mongoose, solo checks)
 export function validateNewProduct(body) {
   const required = ["title", "description", "code", "price", "stock", "category"];
   const missing = required.filter(k => body[k] === undefined);
