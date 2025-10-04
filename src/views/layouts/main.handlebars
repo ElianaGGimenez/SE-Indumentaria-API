@@ -1,10 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8"/>
   <title>SE Indumentaria</title>
+  <link rel="stylesheet" href="/css/styles.css"/>
 </head>
 <body>
+  <nav>
+    <a href="/products">Productos</a> |
+    <a href="/realtimeproducts">Realtime</a>
+  </nav>
   {{{body}}}
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/realtime.js"></script>
 </body>
 </html>

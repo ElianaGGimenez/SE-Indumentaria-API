@@ -1,0 +1,16 @@
+# SE-Indumentaria-API (Entrega Final)
+
+## Requisitos
+- Node >= 18
+- MongoDB (Atlas o local)
+
+## Setup
+1. `npm install`
+2. Crear `.env` (ver `.env.example`) con `MONGO_URI` y `PORT`.
+3. Cargar seed: `npm run seed`
+4. Iniciar servidor: `npm start` (o `npm run dev`)
+
+Rutas:
+- API productos: `/api/products`
+- API carrito: `/api/carts`
+- Vistas: `/products`, `/products/:pid`, `/realtimeproducts`, `/carts/:cid`

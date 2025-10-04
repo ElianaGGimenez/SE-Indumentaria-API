@@ -1,7 +1,9 @@
-<h1>Productos actuales</h1>
+<h1>Productos</h1>
 <ul>
   {{#each products}}
-    <li><strong>{{this.nombre}}</strong> - ${{this.precio}}</li>
+    <li>
+      <strong>{{title}}</strong> - ${{price}}  
+      <p>{{description}}</p>
+    </li>
   {{/each}}
 </ul>
-<a href="/realtimeproducts">Ir a Realtime</a>
