@@ -1,35 +1,9 @@
-<h1>Carrito {{cart._id}}</h1>
+<h2>Carrito {{cart._id}}</h2>
 
-{{#if cart.products.length}}
-  <ul>
-    {{#each cart.products}}
-      <li>
-        {{#if this.product}}
-          <img src="{{this.product.img}}" width="60" />
-          <strong>{{this.product.nombre}}</strong>
-          - ${{this.product.precio}} x {{this.quantity}}
-          <form style="display:inline" onsubmit="removeProduct(event,'{{../cart._id}}','{{this.product._id}}')">
-            <button>Eliminar</button>
-          </form>
-        {{else}}
-          Producto eliminado
-        {{/if}}
-      </li>
-    {{/each}}
-  </ul>
-  <button onclick="clearCart('{{cart._id}}')">Vaciar carrito</button>
-{{else}}
-  <p>El carrito está vacío</p>
-{{/if}}
-
-<script>
-  async function removeProduct(e,cid,pid){
-    e.preventDefault();
-    await fetch(`/api/carts/${cid}/products/${pid}`, { method: 'DELETE' });
-    location.reload();
-  }
-  async function clearCart(cid){
-    await fetch(`/api/carts/${cid}`, { method: 'DELETE' });
-    location.reload();
-  }
-</script>
+<ul>
+  {{#each cart.products}}
+    <li>
+      {{this.product.title}} - Cant: {{this.quantity}} - Precio unit: ${{this.product.price}}
+    </li>
+  {{/each}}
+</ul>

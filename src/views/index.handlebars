@@ -25,7 +25,6 @@
 <script>
   async function addToCart(e, pid){
     e.preventDefault();
-    // Aquí debes tener un cartId; para demo, creamos uno y luego agregamos
     let cartId = localStorage.getItem('cartId');
     if(!cartId){
       const res = await fetch('/api/carts', { method: 'POST' });

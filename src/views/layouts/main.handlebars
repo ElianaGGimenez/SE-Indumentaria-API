@@ -1,17 +1,26 @@
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8"/>
-  <title>SE Indumentaria</title>
-  <link rel="stylesheet" href="/css/styles.css"/>
+  <meta charset="utf-8" />
+  <title>SE Indumentaria - {{title}}</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
-  <nav>
-    <a href="/products">Productos</a> |
-    <a href="/realtimeproducts">Realtime</a>
-  </nav>
+  <header>
+    <h1><a href="/">SE Indumentaria y Accesorios</a></h1>
+    <nav>
+      <a href="/products">Productos</a> |
+      <a href="/realtimeproducts">Realtime</a>
+    </nav>
+    <hr/>
+  </header>
+
   {{{body}}}
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="/js/realtime.js"></script>
+
+  <footer>
+    <hr />
+    <p>Proyecto final - SE Indumentaria</p>
+  </footer>
 </body>
 </html>

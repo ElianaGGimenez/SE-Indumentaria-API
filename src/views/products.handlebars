@@ -1,0 +1,23 @@
+<h2>Productos actuales</h2>
+
+<div class="products-grid">
+  {{#each products}}
+    <div class="card">
+      <img src="{{this.image}}" alt="{{this.title}}" style="max-width:100%; height:140px; object-fit:cover"/>
+      <h3>{{this.title}}</h3>
+      <p>$ {{this.price}}</p>
+      <p>Categoria: {{this.category}}</p>
+      <a href="/products/{{this._id}}">Ver detalle</a>
+    </div>
+  {{/each}}
+</div>
+
+<div style="margin-top:20px;">
+  {{#if pagination.hasPrevPage}}
+    <a href="/products?page={{pagination.prevPage}}&limit={{../query.limit}}">Anterior</a>
+  {{/if}}
+  <span> Página {{pagination.page}} de {{pagination.totalPages}} </span>
+  {{#if pagination.hasNextPage}}
+    <a href="/products?page={{pagination.nextPage}}&limit={{../query.limit}}">Siguiente</a>
+  {{/if}}
+</div>

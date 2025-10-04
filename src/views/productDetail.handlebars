@@ -1,24 +1,27 @@
-<h1>{{product.nombre}}</h1>
-<img src="{{product.img}}" width="200" />
-<p>{{product.descripcion}}</p>
-<p>Precio: ${{product.precio}}</p>
-<p>Categoria: {{product.categoria}}</p>
+<h2>{{product.title}}</h2>
+<img src="{{product.image}}" alt="{{product.title}}" style="max-width:300px" />
+<p>Precio: ${{product.price}}</p>
+<p>Categoria: {{product.category}}</p>
+<p>Stock: {{product.stock}}</p>
 
-<form onsubmit="addToCart(event, '{{product._id}}')">
-  <button type="submit">Agregar al carrito</button>
+<form id="add-to-cart" action="/api/carts" method="post">
+  <button id="btn-add">Agregar al carrito</button>
 </form>
 
 <script>
-  async function addToCart(e, pid){
+  document.getElementById("btn-add").addEventListener("click", async (e) => {
     e.preventDefault();
-    let cartId = localStorage.getItem('cartId');
-    if(!cartId){
-      const res = await fetch('/api/carts', { method: 'POST' });
-      const data = await res.json();
-      cartId = data.payload._id;
-      localStorage.setItem('cartId', cartId);
+    try {
+      const createRes = await fetch('/api/carts', { method: 'POST' });
+      const cart = await createRes.json();
+      const cid = cart.payload._id;
+      const pid = "{{product._id}}";
+      await fetch(`/api/carts/${cid}/product/${pid}`, { method: 'POST' });
+      alert('Producto agregado al carrito ' + cid);
+      window.location = `/carts/${cid}`;
+    } catch (err) {
+      console.error(err);
+      alert('Error agregando al carrito');
     }
-    await fetch(`/api/carts/${cartId}/product/${pid}`, { method: 'POST' });
-    alert('Agregado');
-  }
+  });
 </script>

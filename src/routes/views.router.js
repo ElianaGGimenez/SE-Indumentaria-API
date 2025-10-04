@@ -5,60 +5,69 @@ import Cart from "../models/cart.model.js";
 
 const router = Router();
 
-// Paginated products view
+// Home -> redirect to /products
+router.get("/", (req, res) => {
+  res.redirect("/products");
+});
+
+// Products list (handlebars) using same pagination params
 router.get("/products", async (req, res) => {
   try {
-    const { page = 1, limit = 10 } = req.query;
-    const p = Math.max(1, parseInt(page));
-    const lim = Math.max(1, parseInt(limit));
-    const total = await Product.countDocuments();
-    const totalPages = Math.max(1, Math.ceil(total / lim));
-    const products = await Product.find()
-      .skip((p - 1) * lim)
-      .limit(lim)
-      .lean();
+    const { limit = 10, page = 1, sort, query } = req.query;
 
-    res.render("index", {
-      products,
-      page: p,
-      totalPages,
-      hasPrevPage: p > 1,
-      hasNextPage: p < totalPages,
-      prevPage: p > 1 ? p - 1 : null,
-      nextPage: p < totalPages ? p + 1 : null
+    let filter = {};
+    if (query) {
+      const [k, ...rest] = query.split(":");
+      const v = rest.join(":");
+      if (k && v !== undefined) filter[k] = v === "true" ? true : isNaN(Number(v)) ? v : Number(v);
+    }
+
+    const options = { page: Number(page), limit: Number(limit), lean: true };
+    if (sort) options.sort = { price: sort === "asc" ? 1 : -1 };
+
+    const result = await Product.paginate(filter, options);
+
+    res.render("products", {
+      products: result.docs,
+      pagination: {
+        totalPages: result.totalPages,
+        page: result.page,
+        hasPrevPage: result.hasPrevPage,
+        hasNextPage: result.hasNextPage,
+        prevPage: result.prevPage,
+        nextPage: result.nextPage
+      },
+      query: req.query
     });
   } catch (err) {
-    res.status(500).send("Error rendering products");
+    console.error(err);
+    res.status(500).send("Error al renderizar productos");
   }
 });
 
-// Product detail page
 router.get("/products/:pid", async (req, res) => {
   try {
     const product = await Product.findById(req.params.pid).lean();
     if (!product) return res.status(404).send("Producto no encontrado");
     res.render("productDetail", { product });
   } catch (err) {
-    res.status(500).send("Error detail");
+    res.status(500).send("Error al mostrar detalle");
   }
 });
 
-// Realtime products page
-router.get("/realtimeproducts", async (req, res) => {
-  const products = await Product.find().lean();
-  res.render("realTimeProducts", { products });
+router.get("/realtimeproducts", (req, res) => {
+  res.render("realtimeProducts");
 });
 
-// Cart view
 router.get("/carts/:cid", async (req, res) => {
-  const cart = await Cart.findById(req.params.cid).populate("products.product").lean();
-  if (!cart) return res.status(404).send("Carrito no encontrado");
-  res.render("cart", { cart });
-});
-
-// Root -> redirect to products page
-router.get("/", (req, res) => {
-  res.redirect("/products");
+  try {
+    const cid = req.params.cid;
+    const cart = await Cart.findById(cid).populate("products.product").lean();
+    if (!cart) return res.status(404).send("Carrito no encontrado");
+    res.render("cart", { cart });
+  } catch (err) {
+    res.status(500).send("Error al mostrar el carrito");
+  }
 });
 
 export default router;

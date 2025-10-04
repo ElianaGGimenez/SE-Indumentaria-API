@@ -1,16 +1,51 @@
-# SE-Indumentaria-API (Entrega Final)
+# SE Indumentaria y Accesorios - API (Entrega Final)
 
-## Requisitos
-- Node >= 18
-- MongoDB (Atlas o local)
+Proyecto final: API completa para manejar productos y carritos con persistencia en **MongoDB Atlas**, plantillas Handlebars y WebSockets para la vista realtime.
 
-## Setup
-1. `npm install`
-2. Crear `.env` (ver `.env.example`) con `MONGO_URI` y `PORT`.
-3. Cargar seed: `npm run seed`
-4. Iniciar servidor: `npm start` (o `npm run dev`)
+## Tecnologías
+- Node.js
+- Express
+- MongoDB Atlas (Mongoose)
+- Handlebars
+- Socket.IO
 
-Rutas:
-- API productos: `/api/products`
-- API carrito: `/api/carts`
-- Vistas: `/products`, `/products/:pid`, `/realtimeproducts`, `/carts/:cid`
+## Estructura
+(la misma que en la raíz de este README)
+
+## Requisitos instalacion
+1. Clonar repo y entrar a la carpeta.
+2. Crear `.env` con `MONGO_URI` y `PORT` si querés.
+3. `npm install`
+4. `npm run seed` (carga 18 productos)
+5. `npm start` o `npm run dev`
+
+## Endpoints principales
+- `GET /api/products?limit=10&page=1&sort=asc&query=category:indumentaria`
+- `GET /api/products/:pid`
+- `POST /api/products`
+- `PUT /api/products/:pid`
+- `DELETE /api/products/:pid`
+
+- `POST /api/carts`
+- `GET /api/carts/:cid`
+- `POST /api/carts/:cid/product/:pid`
+- `DELETE /api/carts/:cid/products/:pid`
+- `PUT /api/carts/:cid` (reemplaza arreglo)
+- `PUT /api/carts/:cid/products/:pid` (actualiza cantidad)
+- `DELETE /api/carts/:cid` (vacía carrito)
+
+## Vistas (Handlebars)
+- `GET /products` -> listado paginado
+- `GET /products/:pid` -> detalle producto
+- `GET /realtimeproducts` -> vista con websockets para crear/eliminar productos realtime
+- `GET /carts/:cid` -> ver carrito
+
+## Notas
+- El seed crea productos con los campos que exige el modelo (title, price, category, image).
+- En desarrollo usá `0.0.0.0/0` en Network Access de Atlas (temporal).
+- No subir `.env` al repo.
+
+## Entrega
+- Subir repositorio **sin** `node_modules`.
+- Incluir video/README explicando la app.
+
